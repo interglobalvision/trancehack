@@ -140,6 +140,9 @@ function igv_cmb_metaboxes() {
         'name' => __( 'Dock icon', 'taxonomy-metadata' ),
         'id'   => $prefix . 'dock_icon',
         'type' => 'file',
+        'options' => array(
+          'url' => false,
+        ),
       ),
     )
   );
