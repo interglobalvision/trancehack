@@ -4,41 +4,25 @@ get_header();
 
 <!-- main content -->
 
-<main id="main-content">
-
-  <!-- main posts loop -->
-  <section id="posts">
-
 <?php
 if( have_posts() ) {
   while( have_posts() ) {
     the_post();
+    $image_bg = get_post_meta( $post->ID, '_igv_image_bg', true );
+    $video_bg = esc_html(get_post_meta( $post->ID, '_igv_video_bg', true ));
+    $image_overlay = get_post_meta( $post->ID, '_igv_image_overlay', true );
 ?>
-
-    <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-
-      <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-
-      <?php the_content(); ?>
-
-    </article>
-
+<?php if ($video_bg) {
+  $video_embed_code = wp_oembed_get($video_bg, array( 'autoplay' => 1 ) ); 
+  echo $video_embed_code;
+}
+?>
 <?php
   }
-} else {
+} 
 ?>
-    <article class="u-alert"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
-<?php
-} ?>
-
-  <!-- end posts -->
-  </section>
-
-  <?php get_template_part('partials/pagination'); ?>
 
 <!-- end main-content -->
-
-</main>
 
 <?php
 get_footer();
