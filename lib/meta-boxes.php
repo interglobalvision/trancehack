@@ -143,7 +143,7 @@ function igv_cmb_metaboxes() {
       ),
     )
   );
-  $cats = new Taxonomy_MetaData_CMB2( 'artist', $artist_meta, __( 'Artist Settings', 'taxonomy-metadata' ), $overrides );
+  $cats = new Taxonomy_MetaData_CMB2( 'artist', $artist_meta, __( 'Artist Settings', 'taxonomy-metadata' ) );
 
 }
 ?>
