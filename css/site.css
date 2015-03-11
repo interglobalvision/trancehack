@@ -1053,7 +1053,7 @@ img {
   z-index: 190;
   position: fixed;
   bottom: 0;
-  height: 150px;
+  height: 120px;
   left: 0;
   right: 0;
   text-align: center;
@@ -1063,25 +1063,47 @@ img {
   display: inline-block;
   border-radius: 10px;
   padding: 10px;
-  border: 5px double #fff;
+  height: 130px;
+  border: 4px double #fff;
 }
 #dock-list img {
   vertical-align: top;
+  max-height: 90px;
 }
 .dock-divider {
-  height: 130px;
+  height: 90px;
   margin-left: 10px;
   margin-right: 10px;
   border-left: 4px double #fff;
 }
-.home iframe {
+#gif-popover {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  top: 0;
+  left: 0;
+}
+.home iframe,
+.home .front-page-bg,
+.home .front-page-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
+  pofinter-events: none;
   z-index: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.home .front-page-bg {
+  background-size: cover;
+}
+.home .front-page-overlay {
+  background-size: 70%;
 }
 .post {
   width: 95%;
