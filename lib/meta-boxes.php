@@ -133,12 +133,12 @@ function igv_cmb_metaboxes() {
       array(
         'name' => __( 'Freestyle codez', 'taxonomy-metadata' ),
         'desc' => __( 'Enter fun codez', 'taxonomy-metadata' ),
-        'id'   => 'codez', // no prefix needed since the options are one option array.
+        'id'   => $prefix . 'codez', // no prefix needed since the options are one option array.
         'type' => 'textarea_code',
       ),
       array(
         'name' => __( 'Dock icon', 'taxonomy-metadata' ),
-        'id'   => 'dock_icon',
+        'id'   => $prefix . 'dock_icon',
         'type' => 'file',
       ),
     )

@@ -1040,12 +1040,6 @@ a,
 a:active,
 a:visited {
   color: inherit;
-  transition: opacity 0.2s;
-}
-a:hover,
-a:active:hover,
-a:visited:hover {
-  opacity: 0.5;
 }
 html {
   background-color: #fdfdfd;
@@ -1056,6 +1050,7 @@ img {
   height: auto;
 }
 #dock {
+  z-index: 190;
   position: fixed;
   bottom: 0;
   height: 150px;

@@ -61,9 +61,9 @@ foreach ($gifs as $gif) {
 <?php
 $artists = get_terms('artist');
 foreach ($artists as $artist) {
-  // NEEDS TO GET ICON IMAGE HERE FROM TAXONOMY TERM METADATA
+  $icon = Taxonomy_MetaData::get( 'artist', $artist->term_id, '_igv_dock_icon' );
   $url = get_term_link($artist);
-  echo '<li><a href="' . $url . '" alt="' . $artist->name . '"><img src="' . '" /></a></li>';
+  echo '<li><a href="' . $url . '" alt="' . $artist->name . '"><img src="' . $icon . '" /></a></li>';
 }
 ?>
       </ul>

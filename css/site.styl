@@ -72,9 +72,6 @@ p
 
 a,a:active,a:visited
   color:inherit
-  transition:opacity .2s
-  &:hover
-    opacity:.5
 
 
 // BASIC
@@ -91,6 +88,7 @@ img
 // DOCK NAV
 
 #dock
+  z-index: 190
   position: fixed
   bottom: 0
   height: $dock-height
