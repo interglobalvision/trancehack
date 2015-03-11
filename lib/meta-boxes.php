@@ -42,7 +42,7 @@ function igv_cmb_metaboxes() {
   // POST METABOXES
 
   $post_metaboxes = new_cmb2_box( array(
-      'id'            => $prefix . 'metabox',
+      'id'            => $prefix . 'post_metabox',
       'title'         => __( 'Post Settings', 'cmb2' ),
       'object_types'  => array( 'post', ), // Post type
       'context'       => 'normal',
@@ -70,7 +70,7 @@ function igv_cmb_metaboxes() {
   // GIF METABOXES
 
   $gif_metaboxes = new_cmb2_box( array(
-      'id'            => $prefix . 'metabox',
+      'id'            => $prefix . 'gif_metabox',
       'title'         => __( 'Gif', 'cmb2' ),
       'object_types'  => array( 'gif', ), // Post type
       'context'       => 'normal',
