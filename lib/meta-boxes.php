@@ -37,8 +37,9 @@ function igv_cmb_metaboxes() {
   /**
    * Metaboxes declarations here
    * Reference: https://github.com/WebDevStudios/CMB2/blob/master/example-functions.php
-<<<<<<< HEAD
    */
+
+  // POST METABOXES
 
   $post_metaboxes = new_cmb2_box( array(
       'id'            => $prefix . 'metabox',
@@ -66,6 +67,8 @@ function igv_cmb_metaboxes() {
     )
   );
 
+  // GIF METABOXES
+
   $gif_metaboxes = new_cmb2_box( array(
       'id'            => $prefix . 'metabox',
       'title'         => __( 'Gif', 'cmb2' ),
@@ -83,43 +86,41 @@ function igv_cmb_metaboxes() {
       'type'       => 'file',
     )
   );
-=======
-	 */
-	$front_page_id = get_option('page_on_front');
 
-	$front_page = new_cmb2_box( array(
-		'id'            => $prefix . 'front_page',
-		'title'         => __( 'Front page options', 'cmb2' ),
-		'object_types'  => array( 'page', ), // Post type
-		'show_on'      => array( 'id' => array( $front_page_id ) ),
-		'context'       => 'normal',
-		'priority'      => 'high',
-		'show_names'    => true, // Show field names on the left
-		// 'cmb_styles' => false, // false to disable the CMB stylesheet
-		// 'closed'     => true, // true to keep the metabox closed by default
-	) );
+  // FRONT PAGE METABOXES
 
-	$front_page->add_field( array(
-		'name' => __( 'Image background', 'cmb2' ),
-		'desc' => __( 'Upload an image or enter a URL.', 'cmb2' ),
-		'id'   => $prefix . 'image_bg',
-		'type' => 'file',
-	) );
+  $front_page_id = get_option('page_on_front');
 
-	$front_page->add_field( array(
-		'name' => __( 'Video background', 'cmb2' ),
-		'desc' => __( 'Enter a youtube or vimeo URL.', 'cmb2' ),
-		'id'   => $prefix . 'video_bg',
-		'type' => 'oembed',
-	) );
+  $front_page = new_cmb2_box( array(
+      'id'            => $prefix . 'front_page',
+      'title'         => __( 'Front page options', 'cmb2' ),
+      'object_types'  => array( 'page', ), // Post type
+      'show_on'      => array( 'id' => array( $front_page_id ) ),
+      'context'       => 'normal',
+      'priority'      => 'high',
+      'show_names'    => true, // Show field names on the left
+    ) );
 
-	$front_page->add_field( array(
-		'name' => __( 'Image overlay', 'cmb2' ),
-		'desc' => __( 'Upload an image or enter a URL.', 'cmb2' ),
-		'id'   => $prefix . 'image_overlay',
-		'type' => 'file',
-	) );
->>>>>>> FETCH_HEAD
+  $front_page->add_field( array(
+      'name' => __( 'Image background', 'cmb2' ),
+      'desc' => __( 'Upload an image or enter a URL.', 'cmb2' ),
+      'id'   => $prefix . 'image_bg',
+      'type' => 'file',
+    ) );
+
+  $front_page->add_field( array(
+      'name' => __( 'Video background', 'cmb2' ),
+      'desc' => __( 'Enter a youtube or vimeo URL.', 'cmb2' ),
+      'id'   => $prefix . 'video_bg',
+      'type' => 'oembed',
+    ) );
+
+  $front_page->add_field( array(
+      'name' => __( 'Image overlay', 'cmb2' ),
+      'desc' => __( 'Upload an image or enter a URL.', 'cmb2' ),
+      'id'   => $prefix . 'image_overlay',
+      'type' => 'file',
+    ) );
 
 }
 
