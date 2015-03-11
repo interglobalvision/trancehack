@@ -21,10 +21,6 @@ for col in 1..$cols
 
 // VARIABLES
 
-  // DOCK
-
-$dock-height = 150px
-
   // MARGINS
 
 $margin-basic = 10px
@@ -32,6 +28,11 @@ $margin-basic = 10px
 $margin-small = ($margin-basic / 2)
 $margin-large = ($margin-basic * 4)
 $margin-larger = ($margin-basic * 7.5)
+
+  // DOCK
+
+$dock-height = 120px
+$dock-content-height = ($dock-height - ($margin-basic * 3))
 
   // FONTS
 
@@ -101,18 +102,20 @@ img
   display: inline-block
   border-radius: $margin-basic
   padding: $margin-basic
-  border: 5px double white
+  height: ($dock-height + $margin-basic)
+  border: 4px double white
 
   img
     vertical-align: top
+    max-height: $dock-content-height
 
 .dock-divider
-  height: ($dock-height - ($margin-basic * 2))
+  height: $dock-content-height
   margin-left: $margin-basic
   margin-right: $margin-basic
   border-left: 4px double white
-  
-// GIF POPOVER 
+
+// GIF POPOVER
   #gif-popover
     width: 100%
     height: 100%
@@ -123,7 +126,7 @@ img
     top: 0
     left: 0
     cursor: pointer
-  
+
 // FRONT PAGE
 .home
   iframe, .front-page-bg, .front-page-overlay
@@ -140,7 +143,7 @@ img
     background-size: cover
   .front-page-overlay
     background-size: 70%
-    
+
 
 
 // POSTS
