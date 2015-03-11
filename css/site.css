@@ -1086,6 +1086,15 @@ img {
   top: 0;
   left: 0;
   cursor: pointer;
+  -webkit-transition: -webkit-transform 300ms;
+          transition: transform 300ms;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  -webkit-transform-origin: center bottom;
+      -ms-transform-origin: center bottom;
+          transform-origin: center bottom;
+  z-index: 200;
 }
 .home iframe,
 .home .front-page-bg,
@@ -1111,6 +1120,7 @@ img {
   max-width: 900px;
   margin: 40px auto;
   text-align: center;
+  margin-bottom: 150px;
 }
 @media screen and (max-width: 1272px) {
   html {
