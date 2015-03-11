@@ -114,14 +114,23 @@ img
   
 // FRONT PAGE
 .home
-  iframe
+  iframe, .front-page-bg, .front-page-overlay
     position: fixed
     top: 0
     left: 0
     width: 100%
     height: 100%
-    pointer-events: none
+    pofinter-events: none
+  iframe, .front-page-bg
     z-index: 0
+  .front-page-bg, .front-page-overlay
+    background-position: center
+    background-repeat: no-repeat
+  .front-page-bg
+    background-size: cover
+  .front-page-overlay
+    background-size: 70%
+    
 
 
 // POSTS
