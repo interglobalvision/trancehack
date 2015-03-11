@@ -3,16 +3,14 @@ jQuery(document).ready(function () {
   
   $('.js-gif-trigger').on('click', function() {
   	var gifsrc = $(this).attr('data-gif');
-  	if ($('#gif-popover').length) {
-  		$('#gif-popover').css('background-image','url('+gifsrc+')');
-  	} else {
-  		$('#main-container').append('<div id="gif-popover" style="background-image: url('+gifsrc+')"></div>');
-  	}
-  	$('#gif-popover').on('click', function() {
-  		$(this).remove();
-	  });
+  	$('#gif-popover').css({
+  		'background-image':'url('+gifsrc+')',
+  		'transform':'scale(1)'
+  	});
   });
-
-
+  	
+  $('#gif-popover').on('click', function() {
+		$(this).css('transform','scale(0)');
+  });
 
 });
