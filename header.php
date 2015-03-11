@@ -62,9 +62,10 @@ foreach ($gifs as $gif) {
 <?php
 $artists = get_terms('artist');
 foreach ($artists as $artist) {
-  $icon = Taxonomy_MetaData::get( 'artist', $artist->term_id, '_igv_dock_icon' );
+  $iconId = Taxonomy_MetaData::get( 'artist', $artist->term_id, '_igv_dock_icon_id' );
+  $icon = wp_get_attachment_image_src($iconId, 'icon');
   $url = get_term_link($artist);
-  echo '<li><a href="' . $url . '" alt="' . $artist->name . '"><img src="' . $icon . '" /></a></li>';
+  echo '<li><a href="' . $url . '" alt="' . $artist->name . '"><img src="' . $icon[0] . '" /></a></li>';
 }
 ?>
       </ul>
