@@ -35,7 +35,31 @@
 
   <section id="main-container">
 
-  <!-- start content -->
-  <header id="header">
-    <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-  </header>
+    <nav id="dock">
+      <ul>
+<?php
+$gifs = get_posts(array(
+  'post_type' => 'gif',
+  'posts_per_page' => -1
+));
+foreach ($gifs as $gif) {
+  $meta = get_post_meta($gif->ID);
+  if (!empty($meta['_igv_gif'][0])) {
+    $gifSrc = $meta['_igv_gif'][0];
+  } else {
+    $gifSrc = '';
+  }
+  $img = wp_get_attachment_image_src(get_post_thumbnail_id($gif->ID), 'icon');
+  echo '<li class="js-gif-trigger" data-gif="' . $gifSrc . '"><img src="' . $img[0] . '" /></li>';
+}
+?>
+        <li>|</li>
+<?php
+$artists = get_terms('artist');
+foreach ($artists as $artist) {
+  $url = get_term_link($artist);
+  echo '<li><a href="' . $url . '" alt="' . $artist->name . '"><img src="' . '" /></a></li>';
+}
+?>
+      </ul>
+    </nav>

@@ -58,7 +58,7 @@ function artist_taxonomy() {
   );
   $args = array(
     'labels'                     => $labels,
-    'hierarchical'               => true,
+    'hierarchical'               => false,
     'public'                     => true,
     'show_ui'                    => true,
     'show_admin_column'          => true,
