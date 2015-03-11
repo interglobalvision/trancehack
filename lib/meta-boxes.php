@@ -122,7 +122,28 @@ function igv_cmb_metaboxes() {
       'type' => 'file',
     ) );
 
+  // ARTIST METABOXES
+  require_once( 'Taxonomy_MetaData/Taxonomy_MetaData_CMB2.php' );
+  $artist_meta = array(
+    'id'         => $prefix . 'artist_meta',
+    // 'key' and 'value' should be exactly as follows
+    'show_on'    => array( 'key' => 'options-page', 'value' => array( 'unknown', ), ),
+    'show_names' => true, // Show field names on the left
+    'fields'     => array(
+      array(
+        'name' => __( 'Freestyle codez', 'taxonomy-metadata' ),
+        'desc' => __( 'Enter fun codez', 'taxonomy-metadata' ),
+        'id'   => 'codez', // no prefix needed since the options are one option array.
+        'type' => 'textarea_code',
+      ),
+      array(
+        'name' => __( 'Dock icon', 'taxonomy-metadata' ),
+        'id'   => 'dock_icon',
+        'type' => 'file',
+      ),
+    )
+  );
+  $cats = new Taxonomy_MetaData_CMB2( 'artist', $artist_meta, __( 'Artist Settings', 'taxonomy-metadata' ), $overrides );
+
 }
-
-
 ?>

@@ -28,7 +28,7 @@ if( function_exists( 'add_image_size' ) ) {
   add_image_size( 'admin-thumb', 150, 150, false );
   add_image_size( 'opengraph', 1200, 630, true );
 
-  add_image_size( 'name', 199, 299, true );
+  add_image_size( 'icon', 400, 400, true );
 }
 
 // Register Custom Taxonomy: Artists
@@ -58,7 +58,7 @@ function artist_taxonomy() {
   );
   $args = array(
     'labels'                     => $labels,
-    'hierarchical'               => true,
+    'hierarchical'               => false,
     'public'                     => true,
     'show_ui'                    => true,
     'show_admin_column'          => true,
