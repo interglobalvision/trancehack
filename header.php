@@ -35,8 +35,6 @@
 
   <section id="main-container">
 
-    <div id="gif-popover"></div>
-
     <nav id="dock">
       <ul id="dock-list" class="u-inline-list">
 <?php
