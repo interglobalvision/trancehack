@@ -31,6 +31,48 @@ if( function_exists( 'add_image_size' ) ) {
   add_image_size( 'name', 199, 299, true );
 }
 
+// Register Custom Taxonomy: Artists
+function artist_taxonomy() {
+
+  $labels = array(
+    'name'                       => _x( 'Artists', 'Taxonomy General Name', 'text_domain' ),
+    'singular_name'              => _x( 'Artist', 'Taxonomy Singular Name', 'text_domain' ),
+    'menu_name'                  => __( 'Artists', 'text_domain' ),
+    'all_items'                  => __( 'All Artists', 'text_domain' ),
+    'parent_item'                => __( 'Parent Artist', 'text_domain' ),
+    'parent_item_colon'          => __( 'Parent Artist:', 'text_domain' ),
+    'new_item_name'              => __( 'New Artist Name', 'text_domain' ),
+    'add_new_item'               => __( 'Add New Artist', 'text_domain' ),
+    'edit_item'                  => __( 'Edit Artist', 'text_domain' ),
+    'update_item'                => __( 'Update Artist', 'text_domain' ),
+    'separate_items_with_commas' => __( 'Separate artist with commas', 'text_domain' ),
+    'search_items'               => __( 'Search Artist', 'text_domain' ),
+    'add_or_remove_items'        => __( 'Add or remove artists', 'text_domain' ),
+    'choose_from_most_used'      => __( 'Choose from the most used artist', 'text_domain' ),
+    'not_found'                  => __( 'Not Found', 'text_domain' ),
+  );
+  $rewrite = array(
+    'slug'                       => 'artist',
+    'with_front'                 => true,
+    'hierarchical'               => false,
+  );
+  $args = array(
+    'labels'                     => $labels,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => false,
+    'rewrite'                    => $rewrite,
+  );
+  register_taxonomy( 'artist', array( 'post' ), $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'artist_taxonomy', 0 );
+
 // Register Nav Menus
 /*
 register_nav_menus( array(
