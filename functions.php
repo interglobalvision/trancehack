@@ -134,6 +134,39 @@ function custom_login_logo() {
 add_action( 'login_head', 'custom_login_logo' );
 */
 
+function get_domain($url)
+{
+  $pieces = parse_url($url);
+  $domain = isset($pieces['host']) ? $pieces['host'] : '';
+  if (preg_match('/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})$/i', $domain, $regs)) {
+    return $regs['domain'];
+  }
+  return false;
+}
+
+
+// Filter video output
+add_filter('oembed_result','oembed_result_args', 10, 3);
+function oembed_result_args($html, $url, $args) {
+  // $args includes custom argument
+  $newargs = $args;
+  // get rid of discover=true argument
+  //array_pop( $newargs );
+  $parameters = http_build_query($newargs);
+
+  $domain = get_domain($url);
+
+  // Modify video parameters
+  if ($domain == 'youtube.com') {
+    $html = str_replace( '?feature=oembed', '?feature=oembed'.'&amp;'.$parameters, $html );
+  }
+  if ($domain == 'vimeo.com') {
+    $html = str_replace( '" width', '?'.$parameters.'" width', $html );
+  }
+
+  return $html;
+}
+
 // UTILITY FUNCTIONS
 
 // get ID of page by slug
