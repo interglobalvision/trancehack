@@ -36,7 +36,7 @@
   <section id="main-container">
 
     <nav id="dock">
-      <ul>
+      <ul id="dock-list" class="u-inline-list">
 <?php
 $gifs = get_posts(array(
   'post_type' => 'gif',
@@ -50,13 +50,18 @@ foreach ($gifs as $gif) {
     $gifSrc = '';
   }
   $img = wp_get_attachment_image_src(get_post_thumbnail_id($gif->ID), 'icon');
-  echo '<li class="js-gif-trigger" data-gif="' . $gifSrc . '"><img src="' . $img[0] . '" /></li>';
+  echo '<li class="u-pointer js-gif-trigger" data-gif="' . $gifSrc . '"><img src="' . $img[0] . '" /></li>';
 }
 ?>
-        <li>|</li>
+        <li>
+          <div class="dock-divider">
+            &nbsp;
+          </div>
+        </li>
 <?php
 $artists = get_terms('artist');
 foreach ($artists as $artist) {
+  // NEEDS TO GET ICON IMAGE HERE FROM TAXONOMY TERM METADATA
   $url = get_term_link($artist);
   echo '<li><a href="' . $url . '" alt="' . $artist->name . '"><img src="' . '" /></a></li>';
 }
