@@ -25,13 +25,21 @@ for col in 1..$cols
 
 $dock-height = 150px
 
-$margin-small = 5px
-$margin-basic = 10px
-$margin-large = 20px
+  // MARGINS
 
-$font-size-basic = 15px
+$margin-basic = 10px
+
+$margin-small = ($margin-basic / 2)
+$margin-large = ($margin-basic * 4)
+$margin-larger = ($margin-basic * 7.5)
+
+  // FONTS
+
+$font-size-basic = 21px
 $font-leading-basic = 1.35em
 $font-tracking-basic = 0.001em
+
+  // COLORS
 
 $color-black-soft = rgb(14,14,14)
 $color-white-soft = rgb(253,253,253)
@@ -45,13 +53,16 @@ body
   letter-spacing: $font-tracking-basic
 
 h1
-  font-size: 3em
+  font-size: 1.5em
 
 h2
   font-size: 2em
 
 h3
   font-size: 1.5em
+
+h1,h2,h3,h4,h5,h6
+  line-height: $font-leading-basic
 
 p
   margin-bottom: 1em
@@ -102,6 +113,15 @@ img
   margin-left: $margin-basic
   margin-right: $margin-basic
   border-left: 4px double white
+
+
+// POSTS
+
+.post
+  width: 95%
+  max-width: 900px
+  margin: $margin-large auto
+  text-align: center
 
 
 // MEDIA QUERIES
