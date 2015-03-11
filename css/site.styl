@@ -45,6 +45,9 @@ $font-tracking-basic = 0.001em
 $color-black-soft = rgb(14,14,14)
 $color-white-soft = rgb(253,253,253)
 
+$color-dock-background = rgba(0,0,0,0.55)
+
+
 // TYPOGRAPHY
 
 body
@@ -85,6 +88,9 @@ img
   max-width: 100%
   height: auto
 
+iframe
+  max-width: 100%
+
 
 // DOCK NAV
 
@@ -98,7 +104,7 @@ img
   text-align: center
 
 #dock-list
-  background-color: rgba(0,0,0,0.55)
+  background-color: $color-dock-background
   display: inline-block
   border-radius: $margin-basic
   padding: $margin-basic
@@ -115,7 +121,15 @@ img
   margin-right: $margin-basic
   border-left: 4px double white
 
+
+// MOBILE DOCK
+
+#mobile-dock, #mobile-dock-toggle
+  display: none
+
+
 // GIF POPOVER
+
   #gif-popover
     width: 100%
     height: 100%
@@ -131,7 +145,9 @@ img
     transform-origin: center bottom
     z-index: 180
 
+
 // FRONT PAGE
+
 .home
   iframe, .front-page-bg, .front-page-overlay
     position: fixed
@@ -139,15 +155,16 @@ img
     left: 0
     width: 100%
     height: 100%
-    pofinter-events: none
+    pointer-events: none
     z-index: 0
     background-position: center
     background-repeat: no-repeat
-  .front-page-bg
-    background-size: cover
-  .front-page-overlay
-    background-size: 70%
 
+.front-page-bg
+  background-size: cover
+
+.front-page-overlay
+  background-size: 70%
 
 
 // POSTS
@@ -161,6 +178,36 @@ img
 
 // MEDIA QUERIES
 
-@media screen and (max-width: ($col * $cols)+($gutter * $cols))
-  html
-    width: 100%
+@media screen and (max-width: 600px)
+
+  // MOBILE DOCK
+
+  #dock
+    display: none
+
+  #mobile-dock-toggle
+    display: block
+    z-index: 190
+    text-align: center
+    position: fixed
+    top: 85%
+    left: 0
+    right: 0
+    bottom: 0
+
+  #mobile-dock
+    z-index: 190
+    text-align: center
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 15%
+
+  #mobile-dock-list
+    li
+      display: block
+      float: left
+      box-sizing: border-box
+      width: 33.3%
+      padding: $margin-basic

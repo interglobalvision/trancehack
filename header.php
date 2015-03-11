@@ -36,6 +36,7 @@
   <section id="main-container">
     <div id="gif-popover"></div>
 
+
     <nav id="dock">
       <ul id="dock-list" class="u-inline-list">
 <?php
@@ -66,6 +67,39 @@ foreach ($artists as $artist) {
   $icon = wp_get_attachment_image_src($iconId, 'icon');
   $url = get_term_link($artist);
   echo '<li><a href="' . $url . '" alt="' . $artist->name . '"><img src="' . $icon[0] . '" /></a></li>';
+}
+?>
+      </ul>
+    </nav>
+
+
+    <nav id="mobile-dock-toggle" class="u-pointer">
+      <img src="<?php bloginfo('stylesheet_directory'); ?>/img/home-button.png" />
+    </nav>
+    <nav id="mobile-dock">
+      <ul id="mobile-dock-list">
+<?php
+$artists = get_terms('artist');
+foreach ($artists as $artist) {
+  $iconId = Taxonomy_MetaData::get( 'artist', $artist->term_id, '_igv_dock_icon_id' );
+  $icon = wp_get_attachment_image_src($iconId, 'icon');
+  $url = get_term_link($artist);
+  echo '<li><a href="' . $url . '" alt="' . $artist->name . '"><img src="' . $icon[0] . '" /></a></li>';
+}
+
+$gifs = get_posts(array(
+  'post_type' => 'gif',
+  'posts_per_page' => -1
+));
+foreach ($gifs as $gif) {
+  $meta = get_post_meta($gif->ID);
+  if (!empty($meta['_igv_gif'][0])) {
+    $gifSrc = $meta['_igv_gif'][0];
+  } else {
+    $gifSrc = '';
+  }
+  $img = wp_get_attachment_image_src(get_post_thumbnail_id($gif->ID), 'icon');
+  echo '<li class="u-pointer js-gif-trigger" data-gif="' . $gifSrc . '"><img src="' . $img[0] . '" /></li>';
 }
 ?>
       </ul>
