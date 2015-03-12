@@ -41,6 +41,7 @@ function igv_cmb_metaboxes() {
 
   // POST METABOXES
 
+/*
   $post_metaboxes = new_cmb2_box( array(
       'id'            => $prefix . 'post_metabox',
       'title'         => __( 'Post Settings', 'cmb2' ),
@@ -66,6 +67,7 @@ function igv_cmb_metaboxes() {
       'type'       => 'text',
     )
   );
+*/
 
   // GIF METABOXES
 
@@ -123,7 +125,7 @@ function igv_cmb_metaboxes() {
       'options' => array(
 	      'url' => false,
 	    ),
-    ) 
+    )
   );
 
   // ARTIST METABOXES
