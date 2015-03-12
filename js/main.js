@@ -37,7 +37,17 @@ jQuery(document).ready(function () {
   $('#posts').infinitescroll({
     navSelector  : "#pagination",            
     nextSelector : "#pagination a:first",    
-    itemSelector : "#posts article.post"          
+    itemSelector : "#posts article.post",
+    loading: {
+      finished: null,
+      finishedMsg: null,
+      img: null,
+      msg: null,
+      msgText: null,
+      selector: null,
+      speed: 'fast',
+      start: undefined
+    }
   });
 
 });
