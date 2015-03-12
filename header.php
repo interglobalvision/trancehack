@@ -30,7 +30,21 @@
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
   <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); if (is_tax( 'artist' )) { 
+  $artist_id = get_queried_object()->term_id;
+  $bg_color = Taxonomy_MetaData::get( 'artist', $artist_id, '_igv_artist_bg_color');
+  $bg_image = Taxonomy_MetaData::get( 'artist', $artist_id, '_igv_artist_bg_image', true );
+  if ($bg_color || $bg_image) { 
+    echo ' style="'; 
+    if ($bg_color) {
+      echo 'background-color: '.$bg_color.'; ';
+    }
+    if ($bg_image) {
+      echo 'background-image: url('.$bg_image.');';
+    }
+    echo '"';
+  }
+} ?>>
 <!--[if lt IE 7]><p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p><![endif]-->
 
   <section id="main-container">
