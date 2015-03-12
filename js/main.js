@@ -7,14 +7,23 @@ jQuery(document).ready(function () {
 
   $('.js-gif-trigger').on('click', function() {
   	var gifsrc = $(this).attr('data-gif');
-  	gifPopover.css({
-  		'background-image':'url('+gifsrc+')',
-  		'transform':'scale(1)'
-  	});
+  	if (gifPopover.hasClass('open')) {
+  		gifPopover
+  		.transition({scale: 0, duration: 300}, function() {
+  			gifPopover
+  			.css({'background-image':'url('+gifsrc+')'})
+  			.transition({scale: 1, duration: 300});
+  		});
+  	} else {
+	  	gifPopover
+	  	.css({'background-image':'url('+gifsrc+')'})
+	  	.transition({scale: 1, duration: 300})
+	  	.addClass('open');
+	  }
   });
 
   gifPopover.on('click', function() {
-		$(this).css('transform','scale(0)');
+		$(this).transition({scale: 0, duration: 300}).removeClass('open');
   });
 
   // MOBILE MENU
