@@ -1,3 +1,5 @@
+var gifPopover = $('#gif-popover');
+
 jQuery(document).ready(function () {
   'use strict';
 
@@ -5,13 +7,13 @@ jQuery(document).ready(function () {
 
   $('.js-gif-trigger').on('click', function() {
   	var gifsrc = $(this).attr('data-gif');
-  	$('#gif-popover').css({
+  	gifPopover.css({
   		'background-image':'url('+gifsrc+')',
   		'transform':'scale(1)'
   	});
   });
 
-  $('#gif-popover').on('click', function() {
+  gifPopover.on('click', function() {
 		$(this).css('transform','scale(0)');
   });
 
