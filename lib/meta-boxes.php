@@ -163,6 +163,13 @@ function igv_cmb_metaboxes() {
           'url' => false,
         ),
       ),
+      array(
+				'name'    => __( 'Font color', 'cmb2' ),
+				'desc'    => __( '', 'cmb2' ),
+				'id'      => $prefix . 'font_color',
+				'type'    => 'colorpicker',
+				'default' => '#000000',
+			),
 		),
   );
   $cats = new Taxonomy_MetaData_CMB2( 'artist', $artist_meta, __( 'Artist Settings', 'taxonomy-metadata' ) );
