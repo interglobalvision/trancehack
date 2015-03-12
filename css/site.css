@@ -1092,6 +1092,12 @@ iframe {
 #mobile-dock-toggle {
   display: none;
 }
+#mobile-dock-toggle img {
+  height: 80%;
+}
+#mobile-dock-list li img {
+  width: 100%;
+}
 #gif-popover {
   width: 100%;
   height: 100%;
@@ -1102,10 +1108,9 @@ iframe {
   top: 0;
   left: 0;
   cursor: pointer;
-  transition: transform 300ms;
   transform: scale(0);
   transform-origin: center bottom;
-  z-index: 200;
+  z-index: 180;
 }
 .home iframe,
 .home .front-page-bg,
@@ -1133,6 +1138,13 @@ iframe {
   text-align: center;
   margin-bottom: 150px;
 }
+#infscr-loading {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  position: absolute;
+  left: -999999px;
+}
 @media screen and (max-width: 600px) {
   #dock {
     display: none;
@@ -1155,6 +1167,7 @@ iframe {
     left: 0;
     right: 0;
     bottom: 15%;
+    display: none;
   }
   #mobile-dock.active {
     display: block;
