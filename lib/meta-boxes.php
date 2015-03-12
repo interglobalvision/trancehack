@@ -120,7 +120,11 @@ function igv_cmb_metaboxes() {
       'desc' => __( 'Upload an image or enter a URL.', 'cmb2' ),
       'id'   => $prefix . 'image_overlay',
       'type' => 'file',
-    ) );
+      'options' => array(
+	      'url' => false,
+	    ),
+    ) 
+  );
 
   // ARTIST METABOXES
   require_once( 'Taxonomy_MetaData/Taxonomy_MetaData_CMB2.php' );
@@ -144,7 +148,22 @@ function igv_cmb_metaboxes() {
           'url' => false,
         ),
       ),
-    )
+      array(
+				'name'    => __( 'Background color', 'cmb2' ),
+				'desc'    => __( '', 'cmb2' ),
+				'id'      => $prefix . 'artist_bg_color',
+				'type'    => 'colorpicker',
+				'default' => '#000000',
+			),
+      array(
+        'name' => __( 'Background image', 'taxonomy-metadata' ),
+        'id'   => $prefix . 'artist_bg_image',
+        'type' => 'file',
+        'options' => array(
+          'url' => false,
+        ),
+      ),
+		),
   );
   $cats = new Taxonomy_MetaData_CMB2( 'artist', $artist_meta, __( 'Artist Settings', 'taxonomy-metadata' ) );
 
