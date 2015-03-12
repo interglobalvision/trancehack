@@ -32,4 +32,12 @@ jQuery(document).ready(function () {
 		$('#mobile-dock').toggleClass('active');
   });
 
+  // INFINITE SCROLL
+
+  $('#posts').infinitescroll({
+    navSelector  : "#pagination",            
+    nextSelector : "#pagination a:first",    
+    itemSelector : "#posts article.post"          
+  });
+
 });
