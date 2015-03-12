@@ -1,6 +1,7 @@
 trance hack
 -----------
 
+![tranzdanzer]
 (https://i.ytimg.com/vi/nhsha2U5SnE/hqdefault.jpg)
 
 git clone --recursive --depth 1 git@github.com:interglobalvision/interglobalvision-wp-boil.git
