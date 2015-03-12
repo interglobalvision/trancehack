@@ -54,7 +54,7 @@ if (is_tax( 'artist' )) {
 <!--[if lt IE 7]><p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p><![endif]-->
 
   <section id="main-container">
-    <div id="gif-popover"></div>
+    <div id="gif-popover" class="u-pointer"></div>
 
 
     <nav id="dock">
