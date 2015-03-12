@@ -20,7 +20,7 @@ jQuery(document).ready(function () {
   // MOBILE MENU
 
   $('#mobile-dock-toggle').on('click', function() {
-		$('#mobile-dock').toggle();
+		$('#mobile-dock').toggleClass('active');
   });
 
 });
