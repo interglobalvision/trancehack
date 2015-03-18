@@ -7,13 +7,21 @@ jQuery(document).ready(function () {
 
   $('.js-gif-trigger').on('click', function() {
   	var gifsrc = $(this).attr('data-gif');
+    if ($('#mobile-dock').hasClass('active')) {
+      $('#mobile-dock').removeClass('active');
+    }
   	if (gifPopover.hasClass('open')) {
-  		gifPopover
-  		.transition({scale: 0, duration: 300}, function() {
-  			gifPopover
-  			.css({'background-image':'url('+gifsrc+')'})
-  			.transition({scale: 1, duration: 300});
-  		});
+      if (gifPopover.css('background-image') == 'url('+gifsrc+')') {
+    		gifPopover
+        .transition({scale: 0, duration: 300}).removeClass('open');
+      } else {
+        gifPopover
+        .transition({scale: 0, duration: 300}, function() {
+          gifPopover
+          .css({'background-image':'url('+gifsrc+')'})
+          .transition({scale: 1, duration: 300});
+        });
+      }
   	} else {
 	  	gifPopover
 	  	.css({'background-image':'url('+gifsrc+')'})
@@ -30,6 +38,9 @@ jQuery(document).ready(function () {
 
   $('#mobile-dock-toggle').on('click', function() {
 		$('#mobile-dock').toggleClass('active');
+    if (gifPopover.hasClass('open')) {
+      gifPopover.transition({scale: 0, duration: 300}).removeClass('open');
+    }
   });
 
   // INFINITE SCROLL
