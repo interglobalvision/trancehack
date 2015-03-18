@@ -8,12 +8,17 @@ jQuery(document).ready(function () {
   $('.js-gif-trigger').on('click', function() {
   	var gifsrc = $(this).attr('data-gif');
   	if (gifPopover.hasClass('open')) {
-  		gifPopover
-  		.transition({scale: 0, duration: 300}, function() {
-  			gifPopover
-  			.css({'background-image':'url('+gifsrc+')'})
-  			.transition({scale: 1, duration: 300});
-  		});
+      if (gifPopover.css('background-image') == 'url('+gifsrc+')') {
+    		gifPopover
+        .transition({scale: 0, duration: 300}).removeClass('open');
+      } else {
+        gifPopover
+        .transition({scale: 0, duration: 300}, function() {
+          gifPopover
+          .css({'background-image':'url('+gifsrc+')'})
+          .transition({scale: 1, duration: 300});
+        });
+      }
   	} else {
 	  	gifPopover
 	  	.css({'background-image':'url('+gifsrc+')'})
