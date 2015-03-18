@@ -1183,6 +1183,7 @@ iframe {
     right: 0;
     bottom: 15%;
     display: none;
+    overflow: scroll;
   }
   #mobile-dock.active {
     display: block;
