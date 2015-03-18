@@ -105,28 +105,31 @@ iframe
 // DOCK NAV
 
 #dock
+  display: flex
+  justify-content: center
   z-index: 190
   position: fixed
-  bottom: 0
-  height: $dock-height
+  bottom: -13px
   left: 0
   right: 0
   text-align: center
 
 #dock-list
   background-color: $color-dock-background
-  display: inline-block
   border-radius: $margin-basic
   padding: $margin-basic
-  height: ($dock-height + $margin-basic)
   border: 4px double white
+  display: flex
 
   img
     vertical-align: top
     max-height: $dock-content-height
 
+#dock-list li
+  margin: 0 2px 10px
+
+
 .dock-divider
-  height: $dock-content-height
   margin-left: $margin-basic
   margin-right: $margin-basic
   border-left: 4px double white

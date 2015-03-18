@@ -58,7 +58,7 @@ if (is_tax( 'artist' )) {
 
 
     <nav id="dock">
-      <ul id="dock-list" class="u-inline-list">
+      <ul id="dock-list" class="">
 <?php
 $gifs = get_posts(array(
   'post_type' => 'gif',
@@ -75,10 +75,7 @@ foreach ($gifs as $gif) {
   echo '<li class="u-pointer js-gif-trigger" data-gif="' . $gifSrc . '"><img src="' . $img[0] . '" /></li>';
 }
 ?>
-        <li>
-          <div class="dock-divider">
-            &nbsp;
-          </div>
+        <li class="dock-divider">
         </li>
 <?php
 $artists = get_terms('artist');
